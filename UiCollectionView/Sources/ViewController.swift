@@ -27,6 +27,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Books"
+        navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = .black
         setupHierarchy()
         setupLayout()
@@ -64,33 +66,35 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlow
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath)
-        let cellBookCover = collectionView.dequeueReusableCell(withReuseIdentifier: BookCoverCollectionCell.identifier, for: indexPath)
+        let cellBookCover = collectionView.dequeueReusableCell(withReuseIdentifier: BookCoverCollectionCell.identifier, for: indexPath) as? BookCoverCollectionCell
+        let currentImageName = BookModel.images[indexPath.item]
+        cellBookCover?.configure(with: currentImageName)
         
-        return cellBookCover
+        return cellBookCover ?? UICollectionViewCell()
     }
     
     // MARK: - Сколько айтемов вывести на экран
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: (view.frame.width / 3) - 10, height: (view.frame.height / 6) - 10)
+        CGSize(width: 170, height: 340)
     }
     
     // MARK: - Делает отступы для стартового layout по 4 сторонам
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 15)
     }
     
     // MARK: - Минимальный отступ между линиями с объектами Сверху и Снизу
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        20
+        10
     }
     
     // MARK: - Минимальный отступ между объектами Слева и Справа
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        0
+       10
     }
     
     // MARK: - Размер хэдэра

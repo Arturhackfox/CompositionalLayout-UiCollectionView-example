@@ -31,8 +31,7 @@ class BookCoverCollectionCell: UICollectionViewCell {
     private lazy var label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "78%"
-        label.font = .systemFont(ofSize: 10, weight: .semibold)
+        label.font = .systemFont(ofSize: 15, weight: .semibold)
         label.textColor = .white
         
         return label
@@ -46,6 +45,27 @@ class BookCoverCollectionCell: UICollectionViewCell {
         imageview.translatesAutoresizingMaskIntoConstraints = false
         
         return imageview
+    }()
+    
+    private lazy var mainStack: UIStackView = {
+       let hstack = UIStackView()
+        hstack.axis = .vertical
+        hstack.alignment = .center
+        hstack.distribution = .fill
+        hstack.translatesAutoresizingMaskIntoConstraints = false
+        
+        return hstack
+    }()
+    
+    private lazy var bottomStack: UIStackView = {
+       let hstack = UIStackView()
+        hstack.axis = .horizontal
+        hstack.alignment = .center
+        hstack.distribution = .fill
+        hstack.spacing = 10
+        hstack.translatesAutoresizingMaskIntoConstraints = false
+        
+        return hstack
     }()
     
     // MARK: - Inits
@@ -64,30 +84,33 @@ class BookCoverCollectionCell: UICollectionViewCell {
     // MARK: - Layout
     
     private func setupHierarchy() {
-        addSubview(bookCoverImage)
-        addSubview(label)
-        addSubview(icon)
+        addSubview(mainStack)
+        mainStack.addArrangedSubview(bookCoverImage)
+        mainStack.addArrangedSubview(bottomStack)
+        bottomStack.addArrangedSubview(label)
+        bottomStack.addArrangedSubview(icon)
     }
     
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            bookCoverImage.topAnchor.constraint(equalTo: topAnchor),
-            bookCoverImage.bottomAnchor.constraint(equalTo:bottomAnchor, constant: -20),
-            bookCoverImage.leadingAnchor.constraint(equalTo: leadingAnchor),
-            bookCoverImage.trailingAnchor.constraint(equalTo: trailingAnchor),
+            mainStack.topAnchor.constraint(equalTo: topAnchor),
+            mainStack.bottomAnchor.constraint(equalTo:bottomAnchor),
+            mainStack.leadingAnchor.constraint(equalTo: leadingAnchor),
+            mainStack.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            label.bottomAnchor.constraint(equalTo: bottomAnchor),
-            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
             
-            icon.topAnchor.constraint(equalTo: bookCoverImage.bottomAnchor, constant: 4),
-            icon.bottomAnchor.constraint(equalTo: bottomAnchor),
-            icon.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
-        ])
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+          
+            ])
     }
     
     override func prepareForReuse() {
         self.bookCoverImage.image = nil
+    }
+    
+    func configure(with imageName: String) {
+        self.bookCoverImage.image = UIImage(named: imageName)
+        self.label.text = String(Int.random(in: 0...100)) + "%"
     }
     
 }
