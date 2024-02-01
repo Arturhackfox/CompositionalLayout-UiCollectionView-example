@@ -65,7 +65,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlow
     // MARK: - Создание кастомной ячейки
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath)
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath)
         let cellBookCover = collectionView.dequeueReusableCell(withReuseIdentifier: BookCoverCollectionCell.identifier, for: indexPath) as? BookCoverCollectionCell
         let currentImageName = BookModel.images[indexPath.item]
         cellBookCover?.configure(with: currentImageName)

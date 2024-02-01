@@ -15,6 +15,7 @@
 		32D4A5FB2B6B8024002C5FC5 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A5FA2B6B8024002C5FC5 /* CollectionViewCell.swift */; };
 		32D4A5FD2B6B85DB002C5FC5 /* BookCoverCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A5FC2B6B85DB002C5FC5 /* BookCoverCollectionCell.swift */; };
 		32D4A6002B6B938E002C5FC5 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A5FF2B6B938E002C5FC5 /* BookModel.swift */; };
+		32D4A6022B6BA61F002C5FC5 /* CompositionalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A6012B6BA61F002C5FC5 /* CompositionalCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		32D4A5FA2B6B8024002C5FC5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		32D4A5FC2B6B85DB002C5FC5 /* BookCoverCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverCollectionCell.swift; sourceTree = "<group>"; };
 		32D4A5FF2B6B938E002C5FC5 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
+		32D4A6012B6BA61F002C5FC5 /* CompositionalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				32D4A5E72B6B7CA2002C5FC5 /* ViewController.swift */,
 				32D4A5FA2B6B8024002C5FC5 /* CollectionViewCell.swift */,
 				32D4A5FC2B6B85DB002C5FC5 /* BookCoverCollectionCell.swift */,
+				32D4A6012B6BA61F002C5FC5 /* CompositionalCell.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32D4A6002B6B938E002C5FC5 /* BookModel.swift in Sources */,
+				32D4A6022B6BA61F002C5FC5 /* CompositionalCell.swift in Sources */,
 				32D4A5FD2B6B85DB002C5FC5 /* BookCoverCollectionCell.swift in Sources */,
 				32D4A5E82B6B7CA2002C5FC5 /* ViewController.swift in Sources */,
 				32D4A5E42B6B7CA2002C5FC5 /* AppDelegate.swift in Sources */,
