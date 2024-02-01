@@ -86,4 +86,8 @@ class BookCoverCollectionCell: UICollectionViewCell {
         ])
     }
     
+    override func prepareForReuse() {
+        self.bookCoverImage.image = nil
+    }
+    
 }

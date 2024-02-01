@@ -90,7 +90,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlow
     // MARK: - Минимальный отступ между объектами Слева и Справа
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        2
+        0
     }
     
     // MARK: - Размер хэдэра
