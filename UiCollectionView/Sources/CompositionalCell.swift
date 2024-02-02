@@ -14,7 +14,8 @@ class CompositionalCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemBackground
+        //        backgroundColor = .systemBackground
+        backgroundColor = .systemGreen
         setupHierarchy()
         setupLayout()
     }
@@ -34,8 +35,8 @@ class CompositionalCell: UICollectionViewCell {
             
         ])
     }
-
+    
     func configure(with imageName: String) {
-       
+        
     }
 }

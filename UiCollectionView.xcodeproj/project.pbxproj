@@ -9,20 +9,22 @@
 /* Begin PBXBuildFile section */
 		32D4A5E42B6B7CA2002C5FC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A5E32B6B7CA2002C5FC5 /* AppDelegate.swift */; };
 		32D4A5E62B6B7CA2002C5FC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A5E52B6B7CA2002C5FC5 /* SceneDelegate.swift */; };
-		32D4A5E82B6B7CA2002C5FC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A5E72B6B7CA2002C5FC5 /* ViewController.swift */; };
+		32D4A5E82B6B7CA2002C5FC5 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A5E72B6B7CA2002C5FC5 /* MovieViewController.swift */; };
 		32D4A5ED2B6B7CA4002C5FC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32D4A5EC2B6B7CA4002C5FC5 /* Assets.xcassets */; };
 		32D4A5F02B6B7CA4002C5FC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32D4A5EE2B6B7CA4002C5FC5 /* LaunchScreen.storyboard */; };
 		32D4A5FB2B6B8024002C5FC5 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A5FA2B6B8024002C5FC5 /* CollectionViewCell.swift */; };
 		32D4A5FD2B6B85DB002C5FC5 /* BookCoverCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A5FC2B6B85DB002C5FC5 /* BookCoverCollectionCell.swift */; };
 		32D4A6002B6B938E002C5FC5 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A5FF2B6B938E002C5FC5 /* BookModel.swift */; };
 		32D4A6022B6BA61F002C5FC5 /* CompositionalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A6012B6BA61F002C5FC5 /* CompositionalCell.swift */; };
+		32D4A6042B6BA6C5002C5FC5 /* CompositionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A6032B6BA6C5002C5FC5 /* CompositionalViewController.swift */; };
+		32D4A6062B6CCA00002C5FC5 /* ListCellBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D4A6052B6CCA00002C5FC5 /* ListCellBook.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		32D4A5E02B6B7CA2002C5FC5 /* UiCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UiCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32D4A5E32B6B7CA2002C5FC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32D4A5E52B6B7CA2002C5FC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		32D4A5E72B6B7CA2002C5FC5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		32D4A5E72B6B7CA2002C5FC5 /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		32D4A5EC2B6B7CA4002C5FC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32D4A5EF2B6B7CA4002C5FC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32D4A5F12B6B7CA4002C5FC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -30,6 +32,8 @@
 		32D4A5FC2B6B85DB002C5FC5 /* BookCoverCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverCollectionCell.swift; sourceTree = "<group>"; };
 		32D4A5FF2B6B938E002C5FC5 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		32D4A6012B6BA61F002C5FC5 /* CompositionalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalCell.swift; sourceTree = "<group>"; };
+		32D4A6032B6BA6C5002C5FC5 /* CompositionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalViewController.swift; sourceTree = "<group>"; };
+		32D4A6052B6CCA00002C5FC5 /* ListCellBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellBook.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,10 +86,12 @@
 		32D4A5F82B6B7CBF002C5FC5 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				32D4A5E72B6B7CA2002C5FC5 /* ViewController.swift */,
+				32D4A5E72B6B7CA2002C5FC5 /* MovieViewController.swift */,
 				32D4A5FA2B6B8024002C5FC5 /* CollectionViewCell.swift */,
 				32D4A5FC2B6B85DB002C5FC5 /* BookCoverCollectionCell.swift */,
+				32D4A6032B6BA6C5002C5FC5 /* CompositionalViewController.swift */,
 				32D4A6012B6BA61F002C5FC5 /* CompositionalCell.swift */,
+				32D4A6052B6CCA00002C5FC5 /* ListCellBook.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -178,10 +184,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D4A6062B6CCA00002C5FC5 /* ListCellBook.swift in Sources */,
 				32D4A6002B6B938E002C5FC5 /* BookModel.swift in Sources */,
 				32D4A6022B6BA61F002C5FC5 /* CompositionalCell.swift in Sources */,
 				32D4A5FD2B6B85DB002C5FC5 /* BookCoverCollectionCell.swift in Sources */,
-				32D4A5E82B6B7CA2002C5FC5 /* ViewController.swift in Sources */,
+				32D4A5E82B6B7CA2002C5FC5 /* MovieViewController.swift in Sources */,
+				32D4A6042B6BA6C5002C5FC5 /* CompositionalViewController.swift in Sources */,
 				32D4A5E42B6B7CA2002C5FC5 /* AppDelegate.swift in Sources */,
 				32D4A5FB2B6B8024002C5FC5 /* CollectionViewCell.swift in Sources */,
 				32D4A5E62B6B7CA2002C5FC5 /* SceneDelegate.swift in Sources */,

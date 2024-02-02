@@ -32,6 +32,7 @@ class BookCoverCollectionCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 15, weight: .semibold)
+        label.text = ""
         label.textColor = .white
         
         return label
@@ -86,7 +87,8 @@ class BookCoverCollectionCell: UICollectionViewCell {
     private func setupHierarchy() {
         addSubview(mainStack)
         mainStack.addArrangedSubview(bookCoverImage)
-        mainStack.addArrangedSubview(bottomStack)
+//        mainStack.addArrangedSubview(bottomStack)
+        addSubview(bottomStack)
         bottomStack.addArrangedSubview(label)
         bottomStack.addArrangedSubview(icon)
     }
@@ -99,7 +101,9 @@ class BookCoverCollectionCell: UICollectionViewCell {
             mainStack.trailingAnchor.constraint(equalTo: trailingAnchor),
             
             
-            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            bottomStack.topAnchor.constraint(equalTo: mainStack.bottomAnchor, constant: 5),
+            bottomStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
+            bottomStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25)
           
             ])
     }
@@ -114,3 +118,8 @@ class BookCoverCollectionCell: UICollectionViewCell {
     }
     
 }
+
+#Preview {
+        CompositionalViewController()
+    }
+

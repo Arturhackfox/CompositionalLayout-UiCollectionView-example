@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MovieViewController: UIViewController {
     
     // MARK: - Ui
     
@@ -49,12 +49,10 @@ class ViewController: UIViewController {
         ])
     }
     
-    // MARK: - Actions
-
 
 }
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension MovieViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     // MARK: - Количество ячеек в секции
     
