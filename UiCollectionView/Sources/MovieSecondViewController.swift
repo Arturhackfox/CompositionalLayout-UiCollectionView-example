@@ -1,13 +1,9 @@
-//
-//  CompositionalViewController.swift
-//  UiCollectionView
-//
-//  Created by Arthur Sh on 01.02.2024.
-//
+
+
 
 import UIKit
 
-class CompositionalViewController: UIViewController {
+class MovieSecondViewController: UIViewController {
     
     // MARK: - Ui
     
@@ -16,7 +12,7 @@ class CompositionalViewController: UIViewController {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.delegate = self
         collection.dataSource = self
-        collection.register(CompositionalCell.self, forCellWithReuseIdentifier: CompositionalCell.identifier)
+        collection.register(BiographyCollectionCell.self, forCellWithReuseIdentifier: BiographyCollectionCell.identifier)
         collection.register(BookCoverCollectionCell.self, forCellWithReuseIdentifier: BookCoverCollectionCell.identifier)
         collection.register(ListCollectionCell.self, forCellWithReuseIdentifier: ListCollectionCell.identifier)
         collection.translatesAutoresizingMaskIntoConstraints = false
@@ -43,6 +39,26 @@ class CompositionalViewController: UIViewController {
             switch sectionIndex {
             case 0:
                 // Section -> Group -> item -> size
+                let bigItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                      heightDimension: .fractionalHeight(1))
+                let bigItem = NSCollectionLayoutItem(layoutSize: bigItemSize)
+                bigItem.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 15, bottom: 15, trailing: 15)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                       heightDimension: .estimated(200))
+                
+                let mainGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [bigItem])
+                
+
+                let layoutSection = NSCollectionLayoutSection(group: mainGroup)
+                layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 35, leading: 0, bottom: 0, trailing: 0)
+                
+                layoutSection.orthogonalScrollingBehavior = .groupPagingCentered
+                
+                return layoutSection
+                
+            case 1:
+                // Section -> Group -> item -> size
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                       heightDimension: .fractionalHeight(1))
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -61,8 +77,8 @@ class CompositionalViewController: UIViewController {
                 layoutSection.orthogonalScrollingBehavior = .groupPaging
                 
                 return layoutSection
-                
-            case 1:
+               
+            default:
                 // Section -> Group -> item -> size
                 
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
@@ -84,34 +100,7 @@ class CompositionalViewController: UIViewController {
                 layoutSection.orthogonalScrollingBehavior = .groupPaging
                 
                 return layoutSection
-            default:
-                // Section -> Group -> item -> size
-                let bigItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.6),
-                                                      heightDimension: .fractionalHeight(1))
-                let bigItem = NSCollectionLayoutItem(layoutSize: bigItemSize)
-                bigItem.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
-                
-                let smallItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                            heightDimension: .fractionalHeight(0.5))
-                let smallItem = NSCollectionLayoutItem(layoutSize: smallItemSize)
-                smallItem.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
-                
-                let rightGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.4),
-                                                            heightDimension: .fractionalHeight(1))
-                
-                let rightGroupLayout = NSCollectionLayoutGroup.vertical(layoutSize: rightGroupSize, subitem: smallItem, count: 2)
-                
-                let mainGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                           heightDimension: .estimated(500))
-
-                let finalGroup = NSCollectionLayoutGroup.horizontal(layoutSize: mainGroupSize, subitems: [bigItem, rightGroupLayout])
-
-                let layoutSection = NSCollectionLayoutSection(group: finalGroup)
-                layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 35, leading: 0, bottom: 0, trailing: 0)
-                
-                layoutSection.orthogonalScrollingBehavior = .groupPagingCentered
-                
-                return layoutSection
+               
             }
         }
     }
@@ -133,45 +122,49 @@ class CompositionalViewController: UIViewController {
     
 }
 
-extension CompositionalViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension MovieSecondViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        3
+        CompositionalModel.modelsArray.count
+
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 20
+            CompositionalModel.modelsArray[section].count
         case 1:
-            return 10
+            CompositionalModel.modelsArray[section].count
          default:
-            return 9
+            CompositionalModel.modelsArray[section].count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BiographyCollectionCell.identifier, for: indexPath) as? BiographyCollectionCell
+            let data = CompositionalModel.modelsArray[indexPath.section][indexPath.item]
+            cell?.configure(with: data, index: indexPath.item + 1)
+            return cell ?? UICollectionViewCell()
+        case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookCoverCollectionCell.identifier, for: indexPath) as? BookCoverCollectionCell
             let currentImage = BookModel.images[indexPath.item]
             cell?.configure(with: currentImage)
             return cell ?? UICollectionViewCell()
-        case 1:
+           
+        default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCollectionCell.identifier, for: indexPath) as? ListCollectionCell
-            let currentImage = BookModel.images[indexPath.item]
-            cell?.configure(with: currentImage, index: indexPath.row + 1)
+            let currentModel = CompositionalModel.modelsArray[indexPath.section][indexPath.item]
+            cell?.configure(with: currentModel)
             
             return cell ?? UICollectionViewCell()
-        default:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompositionalCell.identifier, for: indexPath)
-            cell.backgroundColor = .systemOrange
-            return cell
+           
         }
     }
 }
 
 
 #Preview {
-        CompositionalViewController()
+        MovieSecondViewController()
     }
